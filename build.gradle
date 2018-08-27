@@ -1,0 +1,75 @@
+buildscript {
+	ext {
+        crnkVersion = '2.6.20180522184741'
+		kotlinVersion = '1.2.51'
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+	}
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.destiny'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+compileKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ["-Xjsr305=strict"]
+		jvmTarget = "1.8"
+	}
+}
+compileTestKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ["-Xjsr305=strict"]
+		jvmTarget = "1.8"
+	}
+}
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+    // flyway
+    compile group: 'org.flywaydb', name: 'flyway-core'
+
+    // spring-boot
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
+
+    runtime group: 'org.springframework.boot', name: 'spring-boot-devtools'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+
+    // kotlin
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect'
+
+    // sqlite
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.23.1'
+    compile group: 'com.zsoltfabok', name: 'sqlite-dialect', version: '1.0'
+
+    // h2
+    testCompile group: 'com.h2database', name: 'h2'
+
+    // crnk
+    compile group: 'io.crnk', name: 'crnk-core', version: crnkVersion
+    compile group: 'io.crnk', name: 'crnk-jpa', version: crnkVersion
+    compile group: 'io.crnk', name: 'crnk-setup-spring-boot2', version: crnkVersion
+    compile group: 'io.crnk', name: 'crnk-validation', version: crnkVersion
+}

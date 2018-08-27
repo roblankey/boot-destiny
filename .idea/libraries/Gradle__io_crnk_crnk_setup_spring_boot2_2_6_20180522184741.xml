@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.crnk:crnk-setup-spring-boot2:2.6.20180522184741">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.crnk/crnk-setup-spring-boot2/2.6.20180522184741/c8576b114ae5a4d29f3352c213eba8f124640583/crnk-setup-spring-boot2-2.6.20180522184741.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.crnk/crnk-setup-spring-boot2/2.6.20180522184741/5dfedb0488bb69f1ec7a5ef0242e35597e4121f3/crnk-setup-spring-boot2-2.6.20180522184741-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
