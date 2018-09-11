@@ -9,7 +9,7 @@ data class Set(
         @Id @GeneratedValue @JsonApiId var id: Int = 0,
 
         var name: String = "",
-        var icon: String? = null,
-
-        @OneToMany(mappedBy = "set") var cards: List<Card>? = emptyList()
-)
+        var icon: String? = null
+) {
+    @OneToMany(mappedBy = "set") var cards: List<Card>? = emptyList()
+}
